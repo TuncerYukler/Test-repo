@@ -1,0 +1,1520 @@
+{
+  "manifest": {
+    "catalog_id": "crisp-catalog",
+    "version": "1.0.0",
+    "status": "sample",
+    "framework_basis": "NIST SP 800-53 Rev 5 (cyber leadership to confirm the publication and revision)"
+  },
+  "framework": {
+    "framework": "NIST SP 800-53 Rev 5",
+    "criteria": {
+      "adopt": "The control can apply to at least one in-scope project and needs no change to be tested.",
+      "tailor": "The control applies, but the organization sets its own value, scope or wording.",
+      "exclude": "The control cannot apply to any in-scope project. The reason is recorded."
+    },
+    "decisions": [
+      {
+        "control": "AC-2",
+        "title": "Account Management",
+        "decision": "adopt",
+        "reason": "Applies to every project with user accounts.",
+        "decided_by": "Cyber leadership",
+        "date": "2026-09-15"
+      },
+      {
+        "control": "AC-6",
+        "title": "Least Privilege",
+        "decision": "adopt",
+        "reason": "Applies to every project.",
+        "decided_by": "Cyber leadership",
+        "date": "2026-09-15"
+      },
+      {
+        "control": "IA-2",
+        "title": "Identification and Authentication",
+        "decision": "tailor",
+        "reason": "MFA scope set by organization: administrators and any access from outside the network.",
+        "decided_by": "Cyber leadership",
+        "date": "2026-09-15"
+      },
+      {
+        "control": "IA-5",
+        "title": "Authenticator Management",
+        "decision": "tailor",
+        "reason": "Focused on secrets and credentials held by the solution itself.",
+        "decided_by": "Cyber leadership",
+        "date": "2026-09-15"
+      },
+      {
+        "control": "SC-7",
+        "title": "Boundary Protection",
+        "decision": "adopt",
+        "reason": "Applies to internet-facing and partner-facing projects.",
+        "decided_by": "Cyber leadership",
+        "date": "2026-09-15"
+      },
+      {
+        "control": "SC-8",
+        "title": "Transmission Confidentiality and Integrity",
+        "decision": "adopt",
+        "reason": "Applies wherever data moves between components.",
+        "decided_by": "Cyber leadership",
+        "date": "2026-09-15"
+      },
+      {
+        "control": "SC-12",
+        "title": "Cryptographic Key Establishment and Management",
+        "decision": "adopt",
+        "reason": "Needed wherever encryption is required.",
+        "decided_by": "Cyber leadership",
+        "date": "2026-09-15"
+      },
+      {
+        "control": "SC-23",
+        "title": "Session Authenticity",
+        "decision": "adopt",
+        "reason": "Applies to web applications.",
+        "decided_by": "Cyber leadership",
+        "date": "2026-09-15"
+      },
+      {
+        "control": "SC-28",
+        "title": "Protection of Information at Rest",
+        "decision": "adopt",
+        "reason": "Applies to confidential and restricted data.",
+        "decided_by": "Cyber leadership",
+        "date": "2026-09-15"
+      },
+      {
+        "control": "SI-10",
+        "title": "Information Input Validation",
+        "decision": "adopt",
+        "reason": "Applies to applications and APIs.",
+        "decided_by": "Cyber leadership",
+        "date": "2026-09-15"
+      },
+      {
+        "control": "RA-5",
+        "title": "Vulnerability Monitoring and Scanning",
+        "decision": "tailor",
+        "reason": "Scan frequency set by organization (monthly).",
+        "decided_by": "Cyber leadership",
+        "date": "2026-09-15"
+      },
+      {
+        "control": "AU-2",
+        "title": "Event Logging",
+        "decision": "adopt",
+        "reason": "Applies to every project.",
+        "decided_by": "Cyber leadership",
+        "date": "2026-09-15"
+      },
+      {
+        "control": "AU-3",
+        "title": "Content of Audit Records",
+        "decision": "adopt",
+        "reason": "Defines what each log entry must hold.",
+        "decided_by": "Cyber leadership",
+        "date": "2026-09-15"
+      },
+      {
+        "control": "AU-6",
+        "title": "Audit Record Review",
+        "decision": "tailor",
+        "reason": "Review frequency depends on project criticality.",
+        "decided_by": "Cyber leadership",
+        "date": "2026-09-15"
+      },
+      {
+        "control": "CP-9",
+        "title": "System Backup",
+        "decision": "tailor",
+        "reason": "Backup frequency depends on project criticality.",
+        "decided_by": "Cyber leadership",
+        "date": "2026-09-15"
+      },
+      {
+        "control": "SA-11",
+        "title": "Developer Testing and Evaluation",
+        "decision": "adopt",
+        "reason": "Applies to applications and APIs.",
+        "decided_by": "Cyber leadership",
+        "date": "2026-09-15"
+      },
+      {
+        "control": "SR-3",
+        "title": "Supply Chain Controls and Processes",
+        "decision": "tailor",
+        "reason": "Limited to third-party software components in the first release.",
+        "decided_by": "Cyber leadership",
+        "date": "2026-09-15"
+      },
+      {
+        "control": "PE-3",
+        "title": "Physical Access Control",
+        "decision": "exclude",
+        "reason": "Provided and assessed by the hosting provider. Not assessed per project.",
+        "decided_by": "Cyber leadership",
+        "date": "2026-09-15"
+      },
+      {
+        "control": "PE-6",
+        "title": "Monitoring Physical Access",
+        "decision": "exclude",
+        "reason": "Provided and assessed by the hosting provider.",
+        "decided_by": "Cyber leadership",
+        "date": "2026-09-15"
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "term": "Project",
+      "meaning": "A solution going through design assessment. It has one record in CRISP."
+    },
+    {
+      "term": "Requirement",
+      "meaning": "One testable security statement adopted by cyber leadership. It has an owner, a source and an evidence definition."
+    },
+    {
+      "term": "Applicability rule",
+      "meaning": "A rule that says which requirements apply to a project, and why."
+    },
+    {
+      "term": "Project attribute",
+      "meaning": "A fact about a project that rules use, such as data class or exposure."
+    },
+    {
+      "term": "Evidence",
+      "meaning": "The proof that shows a requirement is met, such as a design detail, a passed test or a confirmed control."
+    },
+    {
+      "term": "Addressed",
+      "meaning": "The evidence defined for the requirement is present and complete."
+    },
+    {
+      "term": "Partly addressed",
+      "meaning": "Some of the defined evidence is present, but not all of it."
+    },
+    {
+      "term": "Gap",
+      "meaning": "The requirement applies and the design does not show it is met."
+    },
+    {
+      "term": "Risk accepted",
+      "meaning": "A gap that a person with authority outside CRISP has accepted. The decision reference is recorded in CRISP."
+    },
+    {
+      "term": "Not yet assessed",
+      "meaning": "The requirement applies but nobody has judged it yet."
+    },
+    {
+      "term": "Internet-facing",
+      "meaning": "Reachable from outside the organization's network, with or without sign-in."
+    },
+    {
+      "term": "Pattern",
+      "meaning": "A pre-approved design that already meets a known set of requirements."
+    },
+    {
+      "term": "Target",
+      "meaning": "The security level a project of a given category must reach, with a way to measure it."
+    },
+    {
+      "term": "SDA",
+      "meaning": "Security design assessment. The preliminary SDA is produced in Phase 1, updated in Phase 2 and finalized in Phase 3."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-AC-ACCT",
+      "title": "Account management",
+      "statement": "User and service accounts are created, reviewed and removed through a defined process with a named owner.",
+      "framework_refs": [
+        "NIST SP 800-53 Rev 5: AC-2"
+      ],
+      "domain": "identity-and-access",
+      "owner": "Identity and access management lead",
+      "source": "Access control standard, section 3 (example)",
+      "version": 1,
+      "evidence": {
+        "addressed": "The design names the account lifecycle process, the account owner, and the review frequency.",
+        "partly_addressed": "An account process exists but the owner or review frequency is not defined.",
+        "accepted_evidence": [
+          "Design document section on accounts",
+          "Access review procedure"
+        ],
+        "verifier": "Security architect"
+      }
+    },
+    {
+      "id": "REQ-AC-LEAST",
+      "title": "Least privilege",
+      "statement": "Each user, service and component has only the access it needs to do its job.",
+      "framework_refs": [
+        "NIST SP 800-53 Rev 5: AC-6"
+      ],
+      "domain": "identity-and-access",
+      "owner": "Identity and access management lead",
+      "source": "Access control standard, section 4 (example)",
+      "version": 1,
+      "evidence": {
+        "addressed": "The design lists roles and the permissions of each, and shows administrator rights are separate from normal rights.",
+        "partly_addressed": "Roles are defined but some components use shared or broad permissions.",
+        "accepted_evidence": [
+          "Role and permission matrix",
+          "Service account permission list"
+        ],
+        "verifier": "Security architect"
+      }
+    },
+    {
+      "id": "REQ-IA-AUTHN",
+      "title": "Authentication",
+      "statement": "Every user is uniquely identified and authenticated before access to the project is allowed.",
+      "framework_refs": [
+        "NIST SP 800-53 Rev 5: IA-2"
+      ],
+      "domain": "identity-and-access",
+      "owner": "Identity and access management lead",
+      "source": "Access control standard, section 5 (example)",
+      "version": 1,
+      "evidence": {
+        "addressed": "The design shows sign-in through the organization's approved identity provider for all users.",
+        "partly_addressed": "Sign-in uses the approved provider for some users or paths only.",
+        "accepted_evidence": [
+          "Authentication design diagram",
+          "Identity provider integration record"
+        ],
+        "verifier": "Security architect"
+      }
+    },
+    {
+      "id": "REQ-IA-MFA",
+      "title": "Multi-factor authentication",
+      "statement": "Multi-factor authentication is required for administrator access and for any user access from outside the organization's network.",
+      "framework_refs": [
+        "NIST SP 800-53 Rev 5: IA-2(1)",
+        "NIST SP 800-53 Rev 5: IA-2(2)"
+      ],
+      "domain": "identity-and-access",
+      "owner": "Identity and access management lead",
+      "source": "Access control standard, section 5.3 (example)",
+      "version": 1,
+      "evidence": {
+        "addressed": "Design or configuration shows multi-factor authentication enforced on every administrator and external sign-in path, with no bypass.",
+        "partly_addressed": "Multi-factor authentication is enforced on some sign-in paths, or for administrators only.",
+        "accepted_evidence": [
+          "Authentication design diagram",
+          "Identity provider policy export",
+          "Test showing sign-in without a second factor is refused"
+        ],
+        "verifier": "Security architect (design), assurance analyst (test)"
+      }
+    },
+    {
+      "id": "REQ-IA-CRED",
+      "title": "Secrets and credentials",
+      "statement": "Passwords, keys and tokens used by the solution are kept in an approved secrets store and never in code or configuration files.",
+      "framework_refs": [
+        "NIST SP 800-53 Rev 5: IA-5"
+      ],
+      "domain": "identity-and-access",
+      "owner": "Platform security lead",
+      "source": "Secure development standard, section 6 (example)",
+      "version": 1,
+      "evidence": {
+        "addressed": "The design names the secrets store, and a code scan shows no secrets in the repository.",
+        "partly_addressed": "A secrets store is named but the scan was not run or found exceptions.",
+        "accepted_evidence": [
+          "Design document section on secrets",
+          "Secret scanning result"
+        ],
+        "verifier": "Security architect, assurance analyst"
+      }
+    },
+    {
+      "id": "REQ-DP-REST",
+      "title": "Encryption at rest",
+      "statement": "Confidential and restricted data is encrypted wherever it is stored.",
+      "framework_refs": [
+        "NIST SP 800-53 Rev 5: SC-28",
+        "NIST SP 800-53 Rev 5: SC-28(1)"
+      ],
+      "domain": "data-protection",
+      "owner": "Data protection lead",
+      "source": "Data protection standard, section 2 (example)",
+      "version": 1,
+      "evidence": {
+        "addressed": "The design lists every data store holding this data and shows each is encrypted with an approved algorithm.",
+        "partly_addressed": "Some data stores are encrypted and others are not, or a store is missing from the list.",
+        "accepted_evidence": [
+          "Data store inventory",
+          "Configuration export showing encryption enabled"
+        ],
+        "verifier": "Security architect"
+      }
+    },
+    {
+      "id": "REQ-DP-TRANSIT",
+      "title": "Encryption in transit",
+      "statement": "Data is protected with approved encryption whenever it moves between components or leaves the internal network.",
+      "framework_refs": [
+        "NIST SP 800-53 Rev 5: SC-8"
+      ],
+      "domain": "data-protection",
+      "owner": "Data protection lead",
+      "source": "Data protection standard, section 3 (example)",
+      "version": 1,
+      "evidence": {
+        "addressed": "The data flow diagram shows an approved protocol on every connection.",
+        "partly_addressed": "Some connections use unencrypted protocols, or are not shown in the diagram.",
+        "accepted_evidence": [
+          "Data flow diagram",
+          "Network configuration",
+          "TLS scan result"
+        ],
+        "verifier": "Security architect"
+      }
+    },
+    {
+      "id": "REQ-SC-KEYS",
+      "title": "Key management",
+      "statement": "Encryption keys are created, stored, rotated and retired using an approved key management service.",
+      "framework_refs": [
+        "NIST SP 800-53 Rev 5: SC-12"
+      ],
+      "domain": "data-protection",
+      "owner": "Data protection lead",
+      "source": "Cryptography standard, section 4 (example)",
+      "version": 1,
+      "evidence": {
+        "addressed": "The design names the key service, the rotation period and who can access keys.",
+        "partly_addressed": "A key service is named but rotation or access is not defined.",
+        "accepted_evidence": [
+          "Design document section on keys",
+          "Key service configuration"
+        ],
+        "verifier": "Security architect"
+      }
+    },
+    {
+      "id": "REQ-SC-SESSION",
+      "title": "Session protection",
+      "statement": "User sessions are protected against theft and reuse, and end after a defined idle time.",
+      "framework_refs": [
+        "NIST SP 800-53 Rev 5: SC-23"
+      ],
+      "domain": "data-protection",
+      "owner": "Platform security lead",
+      "source": "Secure development standard, section 7 (example)",
+      "version": 1,
+      "evidence": {
+        "addressed": "The design defines token lifetime, secure cookie settings, idle timeout and logout behavior.",
+        "partly_addressed": "Some of these settings are defined but not all.",
+        "accepted_evidence": [
+          "Design document section on sessions",
+          "Session test result"
+        ],
+        "verifier": "Security architect, assurance analyst"
+      }
+    },
+    {
+      "id": "REQ-AU-LOG",
+      "title": "Security event logging",
+      "statement": "Security-relevant events are logged with who, what, when and where, and sent to the central logging platform.",
+      "framework_refs": [
+        "NIST SP 800-53 Rev 5: AU-2",
+        "NIST SP 800-53 Rev 5: AU-3"
+      ],
+      "domain": "logging-and-operations",
+      "owner": "Security operations lead",
+      "source": "Logging standard, section 2 (example)",
+      "version": 1,
+      "evidence": {
+        "addressed": "The design lists the events logged, the fields in each entry, and shows delivery to the central platform.",
+        "partly_addressed": "Logging exists but events, fields or central delivery are incomplete.",
+        "accepted_evidence": [
+          "Logging design",
+          "Sample log entries",
+          "Logging platform onboarding record"
+        ],
+        "verifier": "Security architect"
+      }
+    },
+    {
+      "id": "REQ-AU-REVIEW",
+      "title": "Log review",
+      "statement": "Security logs are reviewed on a defined schedule, and suspicious activity is followed up.",
+      "framework_refs": [
+        "NIST SP 800-53 Rev 5: AU-6"
+      ],
+      "domain": "logging-and-operations",
+      "owner": "Security operations lead",
+      "source": "Logging standard, section 5 (example)",
+      "version": 1,
+      "evidence": {
+        "addressed": "Alerts and a review schedule are defined, and an owner is named.",
+        "partly_addressed": "A review is planned but the schedule or owner is missing.",
+        "accepted_evidence": [
+          "Monitoring plan",
+          "Alert rule list"
+        ],
+        "verifier": "Security operations analyst"
+      }
+    },
+    {
+      "id": "REQ-CP-BACKUP",
+      "title": "Backup and restore",
+      "statement": "Data and configuration are backed up at a frequency set by criticality, and restoring from backup is tested.",
+      "framework_refs": [
+        "NIST SP 800-53 Rev 5: CP-9"
+      ],
+      "domain": "logging-and-operations",
+      "owner": "Resilience lead",
+      "source": "Resilience standard, section 3 (example)",
+      "version": 1,
+      "evidence": {
+        "addressed": "Backup frequency, retention and a successful restore test are documented.",
+        "partly_addressed": "Backups are defined but no restore test has been done.",
+        "accepted_evidence": [
+          "Backup design",
+          "Restore test record"
+        ],
+        "verifier": "Security architect, resilience analyst"
+      }
+    },
+    {
+      "id": "REQ-SI-VULN",
+      "title": "Vulnerability scanning",
+      "statement": "The solution and its platform are scanned for known vulnerabilities at least monthly, and findings are fixed within agreed time frames.",
+      "framework_refs": [
+        "NIST SP 800-53 Rev 5: RA-5"
+      ],
+      "domain": "logging-and-operations",
+      "owner": "Vulnerability management lead",
+      "source": "Vulnerability management standard, section 2 (example)",
+      "version": 1,
+      "evidence": {
+        "addressed": "The project is enrolled in scanning and a recent scan result is available.",
+        "partly_addressed": "The project is enrolled but the scan result is old or findings are unresolved.",
+        "accepted_evidence": [
+          "Scanner enrollment record",
+          "Latest scan result"
+        ],
+        "verifier": "Assurance analyst"
+      }
+    },
+    {
+      "id": "REQ-SC-BOUNDARY",
+      "title": "Boundary protection",
+      "statement": "Traffic into and out of the project passes through approved controls, and only the needed connections are allowed.",
+      "framework_refs": [
+        "NIST SP 800-53 Rev 5: SC-7"
+      ],
+      "domain": "application-and-supply-chain",
+      "owner": "Network security lead",
+      "source": "Network security standard, section 3 (example)",
+      "version": 1,
+      "evidence": {
+        "addressed": "The design shows all inbound and outbound traffic passing through approved controls, with an allowed connection list.",
+        "partly_addressed": "Approved controls exist but some paths bypass them.",
+        "accepted_evidence": [
+          "Network diagram",
+          "Firewall or gateway rule list"
+        ],
+        "verifier": "Security architect"
+      }
+    },
+    {
+      "id": "REQ-SI-INPUT",
+      "title": "Input validation",
+      "statement": "All input from users and other systems is checked before it is used.",
+      "framework_refs": [
+        "NIST SP 800-53 Rev 5: SI-10"
+      ],
+      "domain": "application-and-supply-chain",
+      "owner": "Application security lead",
+      "source": "Secure development standard, section 3 (example)",
+      "version": 1,
+      "evidence": {
+        "addressed": "The design describes validation for every input path, and a test shows invalid input is refused.",
+        "partly_addressed": "Validation is described for some inputs only, or no test was run.",
+        "accepted_evidence": [
+          "Design document section on input handling",
+          "Security test result"
+        ],
+        "verifier": "Security architect, assurance analyst"
+      }
+    },
+    {
+      "id": "REQ-SA-TEST",
+      "title": "Security testing",
+      "statement": "The solution is security tested before release, and findings are fixed or formally accepted.",
+      "framework_refs": [
+        "NIST SP 800-53 Rev 5: SA-11"
+      ],
+      "domain": "application-and-supply-chain",
+      "owner": "Application security lead",
+      "source": "Secure development standard, section 9 (example)",
+      "version": 1,
+      "evidence": {
+        "addressed": "A security test plan exists, and results show no unresolved critical or high findings.",
+        "partly_addressed": "A test plan exists but testing is not complete, or findings are unresolved.",
+        "accepted_evidence": [
+          "Security test plan",
+          "Test report"
+        ],
+        "verifier": "Assurance analyst"
+      }
+    },
+    {
+      "id": "REQ-SR-SUPPLY",
+      "title": "Third-party components",
+      "statement": "Third-party software components are listed and checked for known vulnerabilities and untrusted sources.",
+      "framework_refs": [
+        "NIST SP 800-53 Rev 5: SR-3"
+      ],
+      "domain": "application-and-supply-chain",
+      "owner": "Application security lead",
+      "source": "Secure development standard, section 10 (example)",
+      "version": 1,
+      "evidence": {
+        "addressed": "A component list exists and a recent check shows no unresolved critical findings.",
+        "partly_addressed": "A component list exists but no vulnerability check has been done.",
+        "accepted_evidence": [
+          "Software bill of materials",
+          "Component scan result"
+        ],
+        "verifier": "Assurance analyst"
+      }
+    }
+  ],
+  "project_attributes": [
+    {
+      "id": "project_type",
+      "question": "What kind of solution is it?",
+      "values": [
+        "web-application",
+        "api",
+        "data-platform",
+        "batch-job",
+        "other"
+      ],
+      "source": "Security architect"
+    },
+    {
+      "id": "data_class",
+      "question": "Most sensitive data class handled",
+      "values": [
+        "public",
+        "internal",
+        "confidential",
+        "restricted"
+      ],
+      "scores": {
+        "public": 1,
+        "internal": 2,
+        "confidential": 3,
+        "restricted": 4
+      },
+      "source": "Project registry"
+    },
+    {
+      "id": "exposure",
+      "question": "Who can reach it?",
+      "values": [
+        "internal",
+        "partner",
+        "internet-authenticated",
+        "internet-public"
+      ],
+      "scores": {
+        "internal": 1,
+        "partner": 2,
+        "internet-authenticated": 3,
+        "internet-public": 4
+      },
+      "source": "Security architect (from the architecture diagram)"
+    },
+    {
+      "id": "criticality",
+      "question": "How important is it to the business?",
+      "values": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "scores": {
+        "low": 1,
+        "medium": 2,
+        "high": 3,
+        "critical": 4
+      },
+      "source": "Project office"
+    },
+    {
+      "id": "uses_third_party_components",
+      "question": "Does it use third-party software components?",
+      "values": [
+        true,
+        false
+      ],
+      "source": "Security architect"
+    },
+    {
+      "id": "threat_context",
+      "question": "Known threat activity against this kind of solution",
+      "values": [
+        "low",
+        "elevated",
+        "high"
+      ],
+      "scores": {
+        "low": 1,
+        "elevated": 2,
+        "high": 3
+      },
+      "source": "Threat model and threat intelligence"
+    }
+  ],
+  "classification_rules": [
+    {
+      "id": "CLS-001",
+      "version": 1,
+      "category": "tier-1",
+      "when": {
+        "all": [
+          {
+            "attribute": "criticality",
+            "in": [
+              "high",
+              "critical"
+            ]
+          },
+          {
+            "attribute": "data_class",
+            "in": [
+              "confidential",
+              "restricted"
+            ]
+          }
+        ]
+      },
+      "reason": "High business criticality and sensitive data."
+    },
+    {
+      "id": "CLS-002",
+      "version": 1,
+      "category": "tier-2",
+      "when": {
+        "any": [
+          {
+            "attribute": "criticality",
+            "in": [
+              "high",
+              "critical"
+            ]
+          },
+          {
+            "attribute": "data_class",
+            "in": [
+              "confidential",
+              "restricted"
+            ]
+          },
+          {
+            "attribute": "exposure",
+            "in": [
+              "internet-authenticated",
+              "internet-public"
+            ]
+          }
+        ]
+      },
+      "reason": "High criticality, sensitive data or internet exposure."
+    },
+    {
+      "id": "CLS-003",
+      "version": 1,
+      "category": "tier-3",
+      "when": "always",
+      "reason": "Everything else."
+    }
+  ],
+  "applicability_rules": [
+    {
+      "id": "APP-001",
+      "version": 1,
+      "name": "Baseline for every project",
+      "when": "always",
+      "require": [
+        "REQ-AC-ACCT",
+        "REQ-AC-LEAST",
+        "REQ-IA-AUTHN",
+        "REQ-IA-CRED",
+        "REQ-AU-LOG",
+        "REQ-SI-VULN"
+      ],
+      "reason": "Baseline requirements apply to every project."
+    },
+    {
+      "id": "APP-002",
+      "version": 1,
+      "name": "Sensitive data at rest",
+      "when": {
+        "all": [
+          {
+            "attribute": "data_class",
+            "in": [
+              "confidential",
+              "restricted"
+            ]
+          }
+        ]
+      },
+      "require": [
+        "REQ-DP-REST",
+        "REQ-SC-KEYS"
+      ],
+      "reason": "The project holds confidential or restricted data."
+    },
+    {
+      "id": "APP-003",
+      "version": 1,
+      "name": "Data in transit",
+      "when": {
+        "any": [
+          {
+            "attribute": "data_class",
+            "in": [
+              "internal",
+              "confidential",
+              "restricted"
+            ]
+          },
+          {
+            "attribute": "exposure",
+            "in": [
+              "partner",
+              "internet-authenticated",
+              "internet-public"
+            ]
+          }
+        ]
+      },
+      "require": [
+        "REQ-DP-TRANSIT"
+      ],
+      "reason": "Non-public data, or a connection that leaves the internal network."
+    },
+    {
+      "id": "APP-004",
+      "version": 1,
+      "name": "Multi-factor authentication",
+      "when": {
+        "all": [
+          {
+            "attribute": "exposure",
+            "in": [
+              "internet-authenticated",
+              "internet-public"
+            ]
+          },
+          {
+            "attribute": "data_class",
+            "in": [
+              "confidential",
+              "restricted"
+            ]
+          }
+        ]
+      },
+      "require": [
+        "REQ-IA-MFA"
+      ],
+      "reason": "Sensitive data reachable from outside the network."
+    },
+    {
+      "id": "APP-005",
+      "version": 1,
+      "name": "Boundary protection",
+      "when": {
+        "all": [
+          {
+            "attribute": "exposure",
+            "in": [
+              "partner",
+              "internet-authenticated",
+              "internet-public"
+            ]
+          }
+        ]
+      },
+      "require": [
+        "REQ-SC-BOUNDARY"
+      ],
+      "reason": "The project can be reached from outside the internal network."
+    },
+    {
+      "id": "APP-006",
+      "version": 1,
+      "name": "Application and API requirements",
+      "when": {
+        "all": [
+          {
+            "attribute": "project_type",
+            "in": [
+              "web-application",
+              "api"
+            ]
+          }
+        ]
+      },
+      "require": [
+        "REQ-SI-INPUT",
+        "REQ-SA-TEST"
+      ],
+      "reason": "Web applications and APIs accept input and need testing."
+    },
+    {
+      "id": "APP-007",
+      "version": 1,
+      "name": "Web session protection",
+      "when": {
+        "all": [
+          {
+            "attribute": "project_type",
+            "in": [
+              "web-application"
+            ]
+          }
+        ]
+      },
+      "require": [
+        "REQ-SC-SESSION"
+      ],
+      "reason": "Web applications keep user sessions."
+    },
+    {
+      "id": "APP-008",
+      "version": 1,
+      "name": "High-criticality operations",
+      "when": {
+        "all": [
+          {
+            "attribute": "criticality",
+            "in": [
+              "high",
+              "critical"
+            ]
+          }
+        ]
+      },
+      "require": [
+        "REQ-CP-BACKUP",
+        "REQ-AU-REVIEW"
+      ],
+      "reason": "The business depends on the project, so backup and log review apply."
+    },
+    {
+      "id": "APP-009",
+      "version": 1,
+      "name": "Third-party components",
+      "when": {
+        "all": [
+          {
+            "attribute": "uses_third_party_components",
+            "in": [
+              true
+            ]
+          }
+        ]
+      },
+      "require": [
+        "REQ-SR-SUPPLY"
+      ],
+      "reason": "The project uses third-party software components."
+    }
+  ],
+  "override_reasons": [
+    {
+      "id": "OVR-SHARED-PLATFORM",
+      "label": "Handled by a shared platform",
+      "applies_to": [
+        "exclude"
+      ],
+      "approval": "cyber-team"
+    },
+    {
+      "id": "OVR-NOT-APPLICABLE",
+      "label": "Not applicable, the feature does not exist in this project",
+      "applies_to": [
+        "exclude"
+      ],
+      "approval": "cyber-team"
+    },
+    {
+      "id": "OVR-COMPENSATING",
+      "label": "Compensating control in place",
+      "applies_to": [
+        "exclude",
+        "partly"
+      ],
+      "approval": "governance-board"
+    },
+    {
+      "id": "OVR-ADD-CONTEXT",
+      "label": "Added because of project-specific context",
+      "applies_to": [
+        "add"
+      ],
+      "approval": "none"
+    },
+    {
+      "id": "OVR-POC-NO-REAL-DATA",
+      "label": "Proof of concept with no real data",
+      "applies_to": [
+        "exclude"
+      ],
+      "approval": "cyber-team"
+    }
+  ],
+  "patterns": [
+    {
+      "id": "PAT-WEB-PUBLIC",
+      "name": "Public web application",
+      "version": 1,
+      "owner": "Pattern owner (example)",
+      "fits_when": "project_type is web-application and exposure is internet-authenticated or internet-public",
+      "controls": [
+        "Web application firewall",
+        "Approved API gateway",
+        "Central sign-in with multi-factor authentication",
+        "Central logging",
+        "Secrets store",
+        "Encrypted data store"
+      ],
+      "limits": "Does not cover mobile apps or file upload features.",
+      "meets_by_design": [
+        "REQ-IA-AUTHN",
+        "REQ-IA-MFA",
+        "REQ-IA-CRED",
+        "REQ-SC-BOUNDARY",
+        "REQ-SC-SESSION",
+        "REQ-AU-LOG",
+        "REQ-DP-TRANSIT",
+        "REQ-DP-REST"
+      ],
+      "measurement": [
+        "All inbound traffic passes the approved gateway (check the network diagram).",
+        "Sign-in uses the central identity provider with multi-factor authentication (check the identity provider policy).",
+        "Logs reach the central platform (check the onboarding record)."
+      ]
+    },
+    {
+      "id": "PAT-API-INTERNAL",
+      "name": "Internal API",
+      "version": 1,
+      "owner": "Pattern owner (example)",
+      "fits_when": "project_type is api and exposure is internal",
+      "controls": [
+        "Internal gateway",
+        "Service-to-service authentication",
+        "Central logging",
+        "Secrets store"
+      ],
+      "limits": "Does not cover APIs shared with partners.",
+      "meets_by_design": [
+        "REQ-IA-AUTHN",
+        "REQ-IA-CRED",
+        "REQ-AU-LOG",
+        "REQ-SC-BOUNDARY"
+      ],
+      "measurement": [
+        "All calls pass the internal gateway (check the network diagram).",
+        "Each caller has its own credential (check the credential list)."
+      ]
+    }
+  ],
+  "targets": {
+    "measures": [
+      {
+        "id": "MEAS-OPEN-CRITICAL",
+        "how": "Count of gaps rated Critical after the risk methodology is applied."
+      },
+      {
+        "id": "MEAS-OPEN-HIGH",
+        "how": "Count of gaps rated High after the risk methodology is applied."
+      },
+      {
+        "id": "MEAS-ADDRESSED-PCT",
+        "how": "Share of applicable requirements with status Addressed."
+      },
+      {
+        "id": "MEAS-THREAT-MODEL",
+        "how": "Threat model completed, checked and signed off by the architect."
+      }
+    ],
+    "targets": [
+      {
+        "id": "TGT-TIER-1",
+        "category": "tier-1",
+        "version": 1,
+        "at_go_live": {
+          "MEAS-OPEN-CRITICAL": 0,
+          "MEAS-OPEN-HIGH": 0,
+          "MEAS-ADDRESSED-PCT": ">= 95",
+          "MEAS-THREAT-MODEL": "required"
+        }
+      },
+      {
+        "id": "TGT-TIER-2",
+        "category": "tier-2",
+        "version": 1,
+        "at_go_live": {
+          "MEAS-OPEN-CRITICAL": 0,
+          "MEAS-OPEN-HIGH": "<= 2",
+          "MEAS-ADDRESSED-PCT": ">= 90",
+          "MEAS-THREAT-MODEL": "required if rule TM-001 applies"
+        }
+      },
+      {
+        "id": "TGT-TIER-3",
+        "category": "tier-3",
+        "version": 1,
+        "at_go_live": {
+          "MEAS-OPEN-CRITICAL": 0,
+          "MEAS-OPEN-HIGH": "<= 5",
+          "MEAS-ADDRESSED-PCT": ">= 80",
+          "MEAS-THREAT-MODEL": "not required"
+        }
+      }
+    ]
+  },
+  "threat_methods": {
+    "trigger_rules": [
+      {
+        "id": "TM-001",
+        "version": 1,
+        "when": {
+          "any": [
+            {
+              "attribute": "data_class",
+              "in": [
+                "confidential",
+                "restricted"
+              ]
+            },
+            {
+              "attribute": "exposure",
+              "in": [
+                "internet-authenticated",
+                "internet-public"
+              ]
+            }
+          ]
+        },
+        "result": "threat-model-required",
+        "reason": "Sensitive data or internet exposure."
+      }
+    ],
+    "methods": [
+      {
+        "id": "METH-STRIDE",
+        "name": "STRIDE per data flow",
+        "version": 1,
+        "fits": [
+          "web-application",
+          "api",
+          "batch-job"
+        ],
+        "steps": [
+          "Draw the data flow diagram",
+          "Mark trust boundaries",
+          "Consider each STRIDE category (spoofing, tampering, repudiation, information disclosure, denial of service, elevation of privilege) for each flow and component",
+          "Link each threat to a planned control",
+          "Record threats with no control as gaps"
+        ],
+        "template": "threat-modeling/templates/stride-template (example)"
+      },
+      {
+        "id": "METH-DATA-PLATFORM",
+        "name": "Data platform threat review",
+        "version": 1,
+        "fits": [
+          "data-platform"
+        ],
+        "steps": [
+          "List data sources",
+          "stores and consumers",
+          "Mark who can read and write at each point",
+          "Consider disclosure",
+          "tampering and misuse at each point",
+          "Link each threat to a planned control",
+          "Record threats with no control as gaps"
+        ],
+        "template": "threat-modeling/templates/data-platform-template (example)"
+      }
+    ],
+    "selection_rules": [
+      {
+        "id": "TM-SEL-001",
+        "when": {
+          "all": [
+            {
+              "attribute": "project_type",
+              "in": [
+                "web-application",
+                "api",
+                "batch-job"
+              ]
+            }
+          ]
+        },
+        "method": "METH-STRIDE"
+      },
+      {
+        "id": "TM-SEL-002",
+        "when": {
+          "all": [
+            {
+              "attribute": "project_type",
+              "in": [
+                "data-platform"
+              ]
+            }
+          ]
+        },
+        "method": "METH-DATA-PLATFORM"
+      },
+      {
+        "id": "TM-SEL-003",
+        "when": "always",
+        "method": "METH-STRIDE"
+      }
+    ]
+  },
+  "threat_library": [
+    {
+      "id": "T-SPOOF-IDENTITY",
+      "category": "Spoofing",
+      "threat": "An attacker pretends to be a legitimate user or administrator.",
+      "requirements": [
+        "REQ-IA-AUTHN",
+        "REQ-IA-MFA",
+        "REQ-AC-ACCT"
+      ]
+    },
+    {
+      "id": "T-TOKEN-THEFT",
+      "category": "Spoofing",
+      "threat": "A session token or cookie is stolen and reused.",
+      "requirements": [
+        "REQ-SC-SESSION",
+        "REQ-IA-MFA",
+        "REQ-DP-TRANSIT"
+      ]
+    },
+    {
+      "id": "T-TAMPER-INPUT",
+      "category": "Tampering",
+      "threat": "Crafted input changes how the application behaves.",
+      "requirements": [
+        "REQ-SI-INPUT",
+        "REQ-SA-TEST"
+      ]
+    },
+    {
+      "id": "T-REPUDIATION",
+      "category": "Repudiation",
+      "threat": "A user denies an action and nobody can prove otherwise.",
+      "requirements": [
+        "REQ-AU-LOG",
+        "REQ-AU-REVIEW"
+      ]
+    },
+    {
+      "id": "T-DISCLOSE-STORE",
+      "category": "Information disclosure",
+      "threat": "Data is read directly from a data store.",
+      "requirements": [
+        "REQ-DP-REST",
+        "REQ-SC-KEYS"
+      ]
+    },
+    {
+      "id": "T-DISCLOSE-TRANSIT",
+      "category": "Information disclosure",
+      "threat": "Data is intercepted while moving between components.",
+      "requirements": [
+        "REQ-DP-TRANSIT"
+      ]
+    },
+    {
+      "id": "T-DISCLOSE-BACKUP",
+      "category": "Information disclosure",
+      "threat": "Backup copies are stolen or exposed.",
+      "requirements": [
+        "REQ-DP-REST",
+        "REQ-CP-BACKUP"
+      ]
+    },
+    {
+      "id": "T-SECRET-LEAK",
+      "category": "Information disclosure",
+      "threat": "A password, key or token is exposed in code or configuration.",
+      "requirements": [
+        "REQ-IA-CRED"
+      ]
+    },
+    {
+      "id": "T-DOS-FLOOD",
+      "category": "Denial of service",
+      "threat": "Traffic floods or exhausts the service.",
+      "requirements": [
+        "REQ-SC-BOUNDARY"
+      ]
+    },
+    {
+      "id": "T-EOP-OVERPRIV",
+      "category": "Elevation of privilege",
+      "threat": "A user or component uses permissions it should not have.",
+      "requirements": [
+        "REQ-AC-LEAST",
+        "REQ-AC-ACCT"
+      ]
+    },
+    {
+      "id": "T-SUPPLY-CHAIN",
+      "category": "Tampering",
+      "threat": "A third-party component contains a flaw or malicious code.",
+      "requirements": [
+        "REQ-SR-SUPPLY",
+        "REQ-SI-VULN"
+      ]
+    }
+  ],
+  "threat_checklist": [
+    {
+      "id": "TMC-001",
+      "check": "A data flow diagram exists and lists all components and data stores."
+    },
+    {
+      "id": "TMC-002",
+      "check": "Every trust boundary is marked."
+    },
+    {
+      "id": "TMC-003",
+      "check": "Every data flow and every component has at least one threat considered, or a recorded reason none applies."
+    },
+    {
+      "id": "TMC-004",
+      "check": "Every threat is linked to at least one planned control or recorded as a gap."
+    },
+    {
+      "id": "TMC-005",
+      "check": "Every threat in the model exists in the threat library, or is flagged as new for the cyber team to review."
+    },
+    {
+      "id": "TMC-006",
+      "check": "The architect has reviewed the model and signed it off."
+    }
+  ],
+  "risk_methodology": {
+    "version": 1,
+    "owner": "Cyber risk (methodology owner)",
+    "purpose": "One approved way to rate risk, so priority and posture are consistent and can be defended.",
+    "factors": {
+      "impact": {
+        "inputs": [
+          "data_class",
+          "criticality"
+        ],
+        "combine": "highest",
+        "scale": "1 to 4, taken from the attribute scores"
+      },
+      "likelihood": {
+        "inputs": [
+          "exposure",
+          "threat_context"
+        ],
+        "combine": "average_rounded_up",
+        "scale": "1 to 4, taken from the attribute scores"
+      }
+    },
+    "inherent_risk": {
+      "formula": "likelihood x impact",
+      "range": "1 to 16"
+    },
+    "rating_thresholds": [
+      {
+        "rating": "Low",
+        "min": 1,
+        "max": 3
+      },
+      {
+        "rating": "Medium",
+        "min": 4,
+        "max": 7
+      },
+      {
+        "rating": "High",
+        "min": 8,
+        "max": 11
+      },
+      {
+        "rating": "Critical",
+        "min": 12,
+        "max": 16
+      }
+    ],
+    "residual_risk": {
+      "formula": "inherent score x status factor, rounded to the nearest whole number, minimum 1",
+      "status_factors": {
+        "addressed": 0.25,
+        "partly_addressed": 0.6,
+        "gap": 1.0,
+        "not_yet_assessed": 1.0
+      },
+      "risk_accepted": "The status factor of the underlying status still applies. Acceptance is recorded with its decision reference, conditions and expiry date. It does not change the rating."
+    },
+    "overrides": {
+      "who": "Cyber risk (methodology owner) or delegate",
+      "limit": "Up or down by one rating level.",
+      "downgrade_from_critical": "Also needs governance board approval.",
+      "record": "Original rating, new rating, reason, approver, date."
+    },
+    "worked_examples": [
+      {
+        "project": "Payments portal",
+        "attributes": {
+          "data_class": "confidential",
+          "criticality": "high",
+          "exposure": "internet-authenticated",
+          "threat_context": "high"
+        },
+        "impact": 3,
+        "likelihood": 3,
+        "inherent": "9 (High)",
+        "residual": {
+          "gap": "9 (High)",
+          "partly_addressed": "5 (Medium)",
+          "addressed": "2 (Low)"
+        }
+      },
+      {
+        "project": "Internal reporting tool",
+        "attributes": {
+          "data_class": "internal",
+          "criticality": "low",
+          "exposure": "internal",
+          "threat_context": "low"
+        },
+        "impact": 2,
+        "likelihood": 1,
+        "inherent": "2 (Low)",
+        "residual": {
+          "gap": "2 (Low)"
+        }
+      },
+      {
+        "project": "Public information site",
+        "attributes": {
+          "data_class": "public",
+          "criticality": "medium",
+          "exposure": "internet-public",
+          "threat_context": "elevated"
+        },
+        "impact": 2,
+        "likelihood": 3,
+        "inherent": "6 (Medium)",
+        "residual": {
+          "gap": "6 (Medium)"
+        }
+      }
+    ]
+  },
+  "change_process": {
+    "change_request_form": {
+      "fields": [
+        "Title",
+        "Item changed (id)",
+        "What changes",
+        "Why",
+        "Evidence for the change (for example override or false-match records)",
+        "Requested by",
+        "Date"
+      ]
+    },
+    "versioning": {
+      "format": "major.minor.patch",
+      "patch": "Wording fixes that do not change meaning.",
+      "minor": "A new or changed requirement, rule, pattern, target or threat library entry.",
+      "major": "A change in framework basis or in the risk methodology calculation.",
+      "pinning": "A project stays on the catalog version it started with. A move needs the security architect's request and the cyber team's agreement. The reason is recorded."
+    },
+    "approvals": [
+      {
+        "change": "Wording fix (patch)",
+        "approver": "Cyber team"
+      },
+      {
+        "change": "New or changed requirement, rule, pattern, target or threat library entry (minor)",
+        "approver": "Governance board"
+      },
+      {
+        "change": "Framework adopt, tailor or exclude decision",
+        "approver": "Cyber leadership"
+      },
+      {
+        "change": "Risk methodology (any change)",
+        "approver": "Governance board, with cyber risk (methodology owner)"
+      },
+      {
+        "change": "Change in framework basis or risk calculation (major)",
+        "approver": "Governance board and cyber leadership"
+      }
+    ],
+    "release_steps": [
+      "Change is proposed as a pull request.",
+      "Automatic checks pass (see tools/crisp_catalog.py validate).",
+      "Reviewers approve. Required approvers depend on the table above.",
+      "Cyber team tags the release and builds the catalog bundle.",
+      "Pilot or new projects are pinned to the new version. Existing projects stay where they are."
+    ]
+  },
+  "change_log": [
+    {
+      "id": "CHG-0001",
+      "version_from": null,
+      "version_to": "1.0.0",
+      "summary": "First release of the sample catalog.",
+      "reason": "Start of Phase 1 pilot.",
+      "requested_by": "Cyber team",
+      "approved_by": "Governance board (GB-2026-014)",
+      "effective": "example only"
+    },
+    {
+      "id": "CHG-0002",
+      "version_from": "1.0.0",
+      "version_to": "1.1.0",
+      "summary": "Add a rule: APIs shared with partners need REQ-IA-MFA for administrator access.",
+      "reason": "Pen test finding showed administrators signing in to a partner API without a second factor.",
+      "requested_by": "Rule steward",
+      "approved_by": "Governance board (example)",
+      "effective": "example only"
+    },
+    {
+      "id": "CHG-0003",
+      "version_from": "1.1.0",
+      "version_to": "1.1.1",
+      "summary": "Reword REQ-AC-ACCT evidence: name the review frequency explicitly.",
+      "reason": "Assessors read the old wording two different ways.",
+      "requested_by": "Assurance",
+      "approved_by": "Cyber team",
+      "effective": "example only"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+# Puts a project into a category. First matching rule wins. The category sets the target level.
+- id: CLS-001
+  version: 1
+  category: tier-1
+  when:
+    all:
+      - {attribute: criticality, in: [high, critical]}
+      - {attribute: data_class, in: [confidential, restricted]}
+  reason: "High business criticality and sensitive data."
+- id: CLS-002
+  version: 1
+  category: tier-2
+  when:
+    any:
+      - {attribute: criticality, in: [high, critical]}
+      - {attribute: data_class, in: [confidential, restricted]}
+      - {attribute: exposure, in: [internet-authenticated, internet-public]}
+  reason: "High criticality, sensitive data or internet exposure."
+- id: CLS-003
+  version: 1
+  category: tier-3
+  when: always
+  reason: "Everything else."

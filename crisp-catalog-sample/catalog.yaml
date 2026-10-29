@@ -1,0 +1,28 @@
+# Catalog manifest. SAMPLE CONTENT: made up to show the shape of the catalog.
+# Not approved, not your organization's real requirements or rules.
+catalog_id: crisp-catalog
+version: 1.0.0
+status: sample
+framework_basis: "NIST SP 800-53 Rev 5 (cyber leadership to confirm the publication and revision)"
+released: "example only"
+approved_by: "example: governance board decision GB-2026-014"
+files:
+  framework: [framework/adoption.yaml]
+  vocabulary: [vocabulary.yaml]
+  requirements:
+    - requirements/identity-and-access.yaml
+    - requirements/data-protection.yaml
+    - requirements/logging-and-operations.yaml
+    - requirements/application-and-supply-chain.yaml
+  project_attributes: [rules/project-attributes.yaml]
+  classification_rules: [rules/classification-rules.yaml]
+  applicability_rules: [rules/applicability-rules.yaml]
+  override_reasons: [rules/override-reasons.yaml]
+  patterns: [patterns-targets/patterns.yaml]
+  targets: [patterns-targets/targets.yaml]
+  threat_methods: [threat-modeling/methods.yaml]
+  threat_library: [threat-modeling/threat-library.yaml]
+  threat_checklist: [threat-modeling/completeness-checklist.yaml]
+  risk_methodology: [risk/risk-methodology.yaml]
+  change_process: [process/change-process.yaml]
+  change_log: [process/change-log.yaml]

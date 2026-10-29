@@ -1,0 +1,14 @@
+# Each threat links to the requirements that address it.
+# A threat in a project's threat model adds those requirements (with the threat as the reason).
+# A threat whose linked requirements are not met is shown as a gap.
+- {id: T-SPOOF-IDENTITY,    category: Spoofing,               threat: "An attacker pretends to be a legitimate user or administrator.", requirements: [REQ-IA-AUTHN, REQ-IA-MFA, REQ-AC-ACCT]}
+- {id: T-TOKEN-THEFT,       category: Spoofing,               threat: "A session token or cookie is stolen and reused.", requirements: [REQ-SC-SESSION, REQ-IA-MFA, REQ-DP-TRANSIT]}
+- {id: T-TAMPER-INPUT,      category: Tampering,              threat: "Crafted input changes how the application behaves.", requirements: [REQ-SI-INPUT, REQ-SA-TEST]}
+- {id: T-REPUDIATION,       category: Repudiation,            threat: "A user denies an action and nobody can prove otherwise.", requirements: [REQ-AU-LOG, REQ-AU-REVIEW]}
+- {id: T-DISCLOSE-STORE,    category: Information disclosure, threat: "Data is read directly from a data store.", requirements: [REQ-DP-REST, REQ-SC-KEYS]}
+- {id: T-DISCLOSE-TRANSIT,  category: Information disclosure, threat: "Data is intercepted while moving between components.", requirements: [REQ-DP-TRANSIT]}
+- {id: T-DISCLOSE-BACKUP,   category: Information disclosure, threat: "Backup copies are stolen or exposed.", requirements: [REQ-DP-REST, REQ-CP-BACKUP]}
+- {id: T-SECRET-LEAK,       category: Information disclosure, threat: "A password, key or token is exposed in code or configuration.", requirements: [REQ-IA-CRED]}
+- {id: T-DOS-FLOOD,         category: Denial of service,      threat: "Traffic floods or exhausts the service.", requirements: [REQ-SC-BOUNDARY]}
+- {id: T-EOP-OVERPRIV,      category: Elevation of privilege, threat: "A user or component uses permissions it should not have.", requirements: [REQ-AC-LEAST, REQ-AC-ACCT]}
+- {id: T-SUPPLY-CHAIN,      category: Tampering,              threat: "A third-party component contains a flaw or malicious code.", requirements: [REQ-SR-SUPPLY, REQ-SI-VULN]}

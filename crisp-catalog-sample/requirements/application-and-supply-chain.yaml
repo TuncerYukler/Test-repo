@@ -1,0 +1,52 @@
+- id: REQ-SC-BOUNDARY
+  title: Boundary protection
+  statement: Traffic into and out of the project passes through approved controls, and only the needed connections are allowed.
+  framework_refs: ["NIST SP 800-53 Rev 5: SC-7"]
+  domain: application-and-supply-chain
+  owner: Network security lead
+  source: "Network security standard, section 3 (example)"
+  version: 1
+  evidence:
+    addressed: "The design shows all inbound and outbound traffic passing through approved controls, with an allowed connection list."
+    partly_addressed: "Approved controls exist but some paths bypass them."
+    accepted_evidence: [Network diagram, Firewall or gateway rule list]
+    verifier: Security architect
+- id: REQ-SI-INPUT
+  title: Input validation
+  statement: All input from users and other systems is checked before it is used.
+  framework_refs: ["NIST SP 800-53 Rev 5: SI-10"]
+  domain: application-and-supply-chain
+  owner: Application security lead
+  source: "Secure development standard, section 3 (example)"
+  version: 1
+  evidence:
+    addressed: "The design describes validation for every input path, and a test shows invalid input is refused."
+    partly_addressed: "Validation is described for some inputs only, or no test was run."
+    accepted_evidence: [Design document section on input handling, Security test result]
+    verifier: Security architect, assurance analyst
+- id: REQ-SA-TEST
+  title: Security testing
+  statement: The solution is security tested before release, and findings are fixed or formally accepted.
+  framework_refs: ["NIST SP 800-53 Rev 5: SA-11"]
+  domain: application-and-supply-chain
+  owner: Application security lead
+  source: "Secure development standard, section 9 (example)"
+  version: 1
+  evidence:
+    addressed: "A security test plan exists, and results show no unresolved critical or high findings."
+    partly_addressed: "A test plan exists but testing is not complete, or findings are unresolved."
+    accepted_evidence: [Security test plan, Test report]
+    verifier: Assurance analyst
+- id: REQ-SR-SUPPLY
+  title: Third-party components
+  statement: Third-party software components are listed and checked for known vulnerabilities and untrusted sources.
+  framework_refs: ["NIST SP 800-53 Rev 5: SR-3"]
+  domain: application-and-supply-chain
+  owner: Application security lead
+  source: "Secure development standard, section 10 (example)"
+  version: 1
+  evidence:
+    addressed: "A component list exists and a recent check shows no unresolved critical findings."
+    partly_addressed: "A component list exists but no vulnerability check has been done."
+    accepted_evidence: [Software bill of materials, Component scan result]
+    verifier: Assurance analyst

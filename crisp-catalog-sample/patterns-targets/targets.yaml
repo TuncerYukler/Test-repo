@@ -1,0 +1,19 @@
+# The level a project must reach, by category. Measures say how each target is checked.
+measures:
+  - {id: MEAS-OPEN-CRITICAL, how: "Count of gaps rated Critical after the risk methodology is applied."}
+  - {id: MEAS-OPEN-HIGH,     how: "Count of gaps rated High after the risk methodology is applied."}
+  - {id: MEAS-ADDRESSED-PCT, how: "Share of applicable requirements with status Addressed."}
+  - {id: MEAS-THREAT-MODEL,  how: "Threat model completed, checked and signed off by the architect."}
+targets:
+  - id: TGT-TIER-1
+    category: tier-1
+    version: 1
+    at_go_live: {MEAS-OPEN-CRITICAL: 0, MEAS-OPEN-HIGH: 0, MEAS-ADDRESSED-PCT: ">= 95", MEAS-THREAT-MODEL: "required"}
+  - id: TGT-TIER-2
+    category: tier-2
+    version: 1
+    at_go_live: {MEAS-OPEN-CRITICAL: 0, MEAS-OPEN-HIGH: "<= 2", MEAS-ADDRESSED-PCT: ">= 90", MEAS-THREAT-MODEL: "required if rule TM-001 applies"}
+  - id: TGT-TIER-3
+    category: tier-3
+    version: 1
+    at_go_live: {MEAS-OPEN-CRITICAL: 0, MEAS-OPEN-HIGH: "<= 5", MEAS-ADDRESSED-PCT: ">= 80", MEAS-THREAT-MODEL: "not required"}

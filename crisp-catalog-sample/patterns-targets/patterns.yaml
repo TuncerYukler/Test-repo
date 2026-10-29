@@ -1,0 +1,23 @@
+- id: PAT-WEB-PUBLIC
+  name: Public web application
+  version: 1
+  owner: Pattern owner (example)
+  fits_when: "project_type is web-application and exposure is internet-authenticated or internet-public"
+  controls: [Web application firewall, Approved API gateway, Central sign-in with multi-factor authentication, Central logging, Secrets store, Encrypted data store]
+  limits: "Does not cover mobile apps or file upload features."
+  meets_by_design: [REQ-IA-AUTHN, REQ-IA-MFA, REQ-IA-CRED, REQ-SC-BOUNDARY, REQ-SC-SESSION, REQ-AU-LOG, REQ-DP-TRANSIT, REQ-DP-REST]
+  measurement:
+    - "All inbound traffic passes the approved gateway (check the network diagram)."
+    - "Sign-in uses the central identity provider with multi-factor authentication (check the identity provider policy)."
+    - "Logs reach the central platform (check the onboarding record)."
+- id: PAT-API-INTERNAL
+  name: Internal API
+  version: 1
+  owner: Pattern owner (example)
+  fits_when: "project_type is api and exposure is internal"
+  controls: [Internal gateway, Service-to-service authentication, Central logging, Secrets store]
+  limits: "Does not cover APIs shared with partners."
+  meets_by_design: [REQ-IA-AUTHN, REQ-IA-CRED, REQ-AU-LOG, REQ-SC-BOUNDARY]
+  measurement:
+    - "All calls pass the internal gateway (check the network diagram)."
+    - "Each caller has its own credential (check the credential list)."

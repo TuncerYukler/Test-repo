@@ -1,0 +1,29 @@
+# Shared terms. One meaning for each word, used in every other file.
+- term: Project
+  meaning: A solution going through design assessment. It has one record in CRISP.
+- term: Requirement
+  meaning: One testable security statement adopted by cyber leadership. It has an owner, a source and an evidence definition.
+- term: Applicability rule
+  meaning: A rule that says which requirements apply to a project, and why.
+- term: Project attribute
+  meaning: A fact about a project that rules use, such as data class or exposure.
+- term: Evidence
+  meaning: The proof that shows a requirement is met, such as a design detail, a passed test or a confirmed control.
+- term: Addressed
+  meaning: The evidence defined for the requirement is present and complete.
+- term: Partly addressed
+  meaning: Some of the defined evidence is present, but not all of it.
+- term: Gap
+  meaning: The requirement applies and the design does not show it is met.
+- term: Risk accepted
+  meaning: A gap that a person with authority outside CRISP has accepted. The decision reference is recorded in CRISP.
+- term: Not yet assessed
+  meaning: The requirement applies but nobody has judged it yet.
+- term: Internet-facing
+  meaning: Reachable from outside the organization's network, with or without sign-in.
+- term: Pattern
+  meaning: A pre-approved design that already meets a known set of requirements.
+- term: Target
+  meaning: The security level a project of a given category must reach, with a way to measure it.
+- term: SDA
+  meaning: Security design assessment. The preliminary SDA is produced in Phase 1, updated in Phase 2 and finalized in Phase 3.

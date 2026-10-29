@@ -1,0 +1,25 @@
+# Made-up change records, to show what is kept for each change. CHG-0002 and CHG-0003 are examples of later changes and are not part of the 1.0.0 content.
+- id: CHG-0001
+  version_from: null
+  version_to: 1.0.0
+  summary: "First release of the sample catalog."
+  reason: "Start of Phase 1 pilot."
+  requested_by: Cyber team
+  approved_by: Governance board (GB-2026-014)
+  effective: example only
+- id: CHG-0002
+  version_from: 1.0.0
+  version_to: 1.1.0
+  summary: "Add a rule: APIs shared with partners need REQ-IA-MFA for administrator access."
+  reason: "Pen test finding showed administrators signing in to a partner API without a second factor."
+  requested_by: Rule steward
+  approved_by: Governance board (example)
+  effective: example only
+- id: CHG-0003
+  version_from: 1.1.0
+  version_to: 1.1.1
+  summary: "Reword REQ-AC-ACCT evidence: name the review frequency explicitly."
+  reason: "Assessors read the old wording two different ways."
+  requested_by: Assurance
+  approved_by: Cyber team
+  effective: example only

@@ -1,0 +1,66 @@
+# Requirement statements are written in our own words. NIST references point to the source control.
+- id: REQ-AC-ACCT
+  title: Account management
+  statement: User and service accounts are created, reviewed and removed through a defined process with a named owner.
+  framework_refs: ["NIST SP 800-53 Rev 5: AC-2"]
+  domain: identity-and-access
+  owner: Identity and access management lead
+  source: "Access control standard, section 3 (example)"
+  version: 1
+  evidence:
+    addressed: "The design names the account lifecycle process, the account owner, and the review frequency."
+    partly_addressed: "An account process exists but the owner or review frequency is not defined."
+    accepted_evidence: [Design document section on accounts, Access review procedure]
+    verifier: Security architect
+- id: REQ-AC-LEAST
+  title: Least privilege
+  statement: Each user, service and component has only the access it needs to do its job.
+  framework_refs: ["NIST SP 800-53 Rev 5: AC-6"]
+  domain: identity-and-access
+  owner: Identity and access management lead
+  source: "Access control standard, section 4 (example)"
+  version: 1
+  evidence:
+    addressed: "The design lists roles and the permissions of each, and shows administrator rights are separate from normal rights."
+    partly_addressed: "Roles are defined but some components use shared or broad permissions."
+    accepted_evidence: [Role and permission matrix, Service account permission list]
+    verifier: Security architect
+- id: REQ-IA-AUTHN
+  title: Authentication
+  statement: Every user is uniquely identified and authenticated before access to the project is allowed.
+  framework_refs: ["NIST SP 800-53 Rev 5: IA-2"]
+  domain: identity-and-access
+  owner: Identity and access management lead
+  source: "Access control standard, section 5 (example)"
+  version: 1
+  evidence:
+    addressed: "The design shows sign-in through the organization's approved identity provider for all users."
+    partly_addressed: "Sign-in uses the approved provider for some users or paths only."
+    accepted_evidence: [Authentication design diagram, Identity provider integration record]
+    verifier: Security architect
+- id: REQ-IA-MFA
+  title: Multi-factor authentication
+  statement: Multi-factor authentication is required for administrator access and for any user access from outside the organization's network.
+  framework_refs: ["NIST SP 800-53 Rev 5: IA-2(1)", "NIST SP 800-53 Rev 5: IA-2(2)"]
+  domain: identity-and-access
+  owner: Identity and access management lead
+  source: "Access control standard, section 5.3 (example)"
+  version: 1
+  evidence:
+    addressed: "Design or configuration shows multi-factor authentication enforced on every administrator and external sign-in path, with no bypass."
+    partly_addressed: "Multi-factor authentication is enforced on some sign-in paths, or for administrators only."
+    accepted_evidence: [Authentication design diagram, Identity provider policy export, Test showing sign-in without a second factor is refused]
+    verifier: Security architect (design), assurance analyst (test)
+- id: REQ-IA-CRED
+  title: Secrets and credentials
+  statement: Passwords, keys and tokens used by the solution are kept in an approved secrets store and never in code or configuration files.
+  framework_refs: ["NIST SP 800-53 Rev 5: IA-5"]
+  domain: identity-and-access
+  owner: Platform security lead
+  source: "Secure development standard, section 6 (example)"
+  version: 1
+  evidence:
+    addressed: "The design names the secrets store, and a code scan shows no secrets in the repository."
+    partly_addressed: "A secrets store is named but the scan was not run or found exceptions."
+    accepted_evidence: [Design document section on secrets, Secret scanning result]
+    verifier: Security architect, assurance analyst

@@ -1,0 +1,35 @@
+Project: Payments portal (made up)   Catalog: 1.0.0 (pinned)
+
+Category: tier-1  (CLS-001 v1: High business criticality and sensitive data.)
+Threat model: required (TM-001), method METH-STRIDE
+
+Risk: impact 3 x likelihood 3 = inherent 9 (High)
+
+Requirement      Status            Residual      Why it applies
+REQ-AC-ACCT      addressed         2 (Low)       APP-001 v1: Baseline requirements apply to every project.
+                                                 T-SPOOF-IDENTITY: An attacker pretends to be a legitimate user or administrator.
+REQ-AC-LEAST     partly_addressed  5 (Medium)    APP-001 v1: Baseline requirements apply to every project.
+REQ-AU-LOG       addressed         2 (Low)       APP-001 v1: Baseline requirements apply to every project.
+REQ-AU-REVIEW    not_yet_assessed  9 (High)      APP-008 v1: The business depends on the project, so backup and log review apply.
+REQ-CP-BACKUP    not_yet_assessed  9 (High)      APP-008 v1: The business depends on the project, so backup and log review apply.
+REQ-DP-REST      addressed         2 (Low)       APP-002 v1: The project holds confidential or restricted data.
+REQ-DP-TRANSIT   addressed         2 (Low)       APP-003 v1: Non-public data, or a connection that leaves the internal network.
+                                                 T-TOKEN-THEFT: A session token or cookie is stolen and reused.
+REQ-IA-AUTHN     addressed         2 (Low)       APP-001 v1: Baseline requirements apply to every project.
+                                                 T-SPOOF-IDENTITY: An attacker pretends to be a legitimate user or administrator.
+REQ-IA-CRED      addressed         2 (Low)       APP-001 v1: Baseline requirements apply to every project.
+REQ-IA-MFA       gap               9 (High)      APP-004 v1: Sensitive data reachable from outside the network.
+                                                 T-SPOOF-IDENTITY: An attacker pretends to be a legitimate user or administrator.
+                                                 T-TOKEN-THEFT: A session token or cookie is stolen and reused.
+REQ-SA-TEST      not_yet_assessed  9 (High)      APP-006 v1: Web applications and APIs accept input and need testing.
+                                                 T-TAMPER-INPUT: Crafted input changes how the application behaves.
+REQ-SC-BOUNDARY  addressed         2 (Low)       APP-005 v1: The project can be reached from outside the internal network.
+REQ-SC-KEYS      partly_addressed  5 (Medium)    APP-002 v1: The project holds confidential or restricted data.
+REQ-SC-SESSION   gap               9 (High)      APP-007 v1: Web applications keep user sessions.
+                                                 T-TOKEN-THEFT: A session token or cookie is stolen and reused.
+REQ-SI-INPUT     partly_addressed  5 (Medium)    APP-006 v1: Web applications and APIs accept input and need testing.
+                                                 T-TAMPER-INPUT: Crafted input changes how the application behaves.
+REQ-SI-VULN      not_yet_assessed  9 (High)      APP-001 v1: Baseline requirements apply to every project.
+REQ-SR-SUPPLY    not_yet_assessed  9 (High)      APP-009 v1: The project uses third-party software components.
+
+Target for tier-1: {'MEAS-OPEN-CRITICAL': 0, 'MEAS-OPEN-HIGH': 0, 'MEAS-ADDRESSED-PCT': '>= 95', 'MEAS-THREAT-MODEL': 'required'}

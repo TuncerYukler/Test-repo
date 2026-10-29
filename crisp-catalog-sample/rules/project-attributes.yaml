@@ -1,0 +1,30 @@
+# The project details that rules use, their allowed values, and where each value comes from.
+# score is used by the risk methodology where the attribute is a risk factor.
+- id: project_type
+  question: What kind of solution is it?
+  values: [web-application, api, data-platform, batch-job, other]
+  source: Security architect
+- id: data_class
+  question: Most sensitive data class handled
+  values: [public, internal, confidential, restricted]
+  scores: {public: 1, internal: 2, confidential: 3, restricted: 4}
+  source: Project registry
+- id: exposure
+  question: Who can reach it?
+  values: [internal, partner, internet-authenticated, internet-public]
+  scores: {internal: 1, partner: 2, internet-authenticated: 3, internet-public: 4}
+  source: Security architect (from the architecture diagram)
+- id: criticality
+  question: How important is it to the business?
+  values: [low, medium, high, critical]
+  scores: {low: 1, medium: 2, high: 3, critical: 4}
+  source: Project office
+- id: uses_third_party_components
+  question: Does it use third-party software components?
+  values: [true, false]
+  source: Security architect
+- id: threat_context
+  question: Known threat activity against this kind of solution
+  values: [low, elevated, high]
+  scores: {low: 1, elevated: 2, high: 3}
+  source: Threat model and threat intelligence

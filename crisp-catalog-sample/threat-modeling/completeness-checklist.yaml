@@ -1,0 +1,7 @@
+# What CRISP checks before a threat model is accepted for review. Checked by code, not by AI.
+- {id: TMC-001, check: "A data flow diagram exists and lists all components and data stores."}
+- {id: TMC-002, check: "Every trust boundary is marked."}
+- {id: TMC-003, check: "Every data flow and every component has at least one threat considered, or a recorded reason none applies."}
+- {id: TMC-004, check: "Every threat is linked to at least one planned control or recorded as a gap."}
+- {id: TMC-005, check: "Every threat in the model exists in the threat library, or is flagged as new for the cyber team to review."}
+- {id: TMC-006, check: "The architect has reviewed the model and signed it off."}

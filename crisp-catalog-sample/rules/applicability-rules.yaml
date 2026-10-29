@@ -1,0 +1,65 @@
+# Which requirements apply to a project, and why. All rules are made up.
+# Each result carries the requirement, the reason and the rule id and version.
+- id: APP-001
+  version: 1
+  name: Baseline for every project
+  when: always
+  require: [REQ-AC-ACCT, REQ-AC-LEAST, REQ-IA-AUTHN, REQ-IA-CRED, REQ-AU-LOG, REQ-SI-VULN]
+  reason: "Baseline requirements apply to every project."
+- id: APP-002
+  version: 1
+  name: Sensitive data at rest
+  when: {all: [{attribute: data_class, in: [confidential, restricted]}]}
+  require: [REQ-DP-REST, REQ-SC-KEYS]
+  reason: "The project holds confidential or restricted data."
+- id: APP-003
+  version: 1
+  name: Data in transit
+  when:
+    any:
+      - {attribute: data_class, in: [internal, confidential, restricted]}
+      - {attribute: exposure, in: [partner, internet-authenticated, internet-public]}
+  require: [REQ-DP-TRANSIT]
+  reason: "Non-public data, or a connection that leaves the internal network."
+- id: APP-004
+  version: 1
+  name: Multi-factor authentication
+  when:
+    all:
+      - {attribute: exposure, in: [internet-authenticated, internet-public]}
+      - {attribute: data_class, in: [confidential, restricted]}
+  require: [REQ-IA-MFA]
+  reason: "Sensitive data reachable from outside the network."
+- id: APP-005
+  version: 1
+  name: Boundary protection
+  when: {all: [{attribute: exposure, in: [partner, internet-authenticated, internet-public]}]}
+  require: [REQ-SC-BOUNDARY]
+  reason: "The project can be reached from outside the internal network."
+- id: APP-006
+  version: 1
+  name: Application and API requirements
+  when: {all: [{attribute: project_type, in: [web-application, api]}]}
+  require: [REQ-SI-INPUT, REQ-SA-TEST]
+  reason: "Web applications and APIs accept input and need testing."
+- id: APP-007
+  version: 1
+  name: Web session protection
+  when: {all: [{attribute: project_type, in: [web-application]}]}
+  require: [REQ-SC-SESSION]
+  reason: "Web applications keep user sessions."
+- id: APP-008
+  version: 1
+  name: High-criticality operations
+  when: {all: [{attribute: criticality, in: [high, critical]}]}
+  require: [REQ-CP-BACKUP, REQ-AU-REVIEW]
+  reason: "The business depends on the project, so backup and log review apply."
+- id: APP-009
+  version: 1
+  name: Third-party components
+  when: {all: [{attribute: uses_third_party_components, in: [true]}]}
+  require: [REQ-SR-SUPPLY]
+  reason: "The project uses third-party software components."
+# Threat-driven additions are handled separately: when a threat appears in a project's
+# threat model, every requirement linked to it in the threat library is added, with the
+# threat as the reason (see threat-modeling/threat-library.yaml).

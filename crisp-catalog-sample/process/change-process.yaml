@@ -1,0 +1,21 @@
+# How the catalog changes and is released.
+change_request_form:
+  fields: [Title, Item changed (id), What changes, Why, Evidence for the change (for example override or false-match records), Requested by, Date]
+versioning:
+  format: "major.minor.patch"
+  patch: "Wording fixes that do not change meaning."
+  minor: "A new or changed requirement, rule, pattern, target or threat library entry."
+  major: "A change in framework basis or in the risk methodology calculation."
+  pinning: "A project stays on the catalog version it started with. A move needs the security architect's request and the cyber team's agreement. The reason is recorded."
+approvals:
+  - {change: "Wording fix (patch)", approver: Cyber team}
+  - {change: "New or changed requirement, rule, pattern, target or threat library entry (minor)", approver: Governance board}
+  - {change: "Framework adopt, tailor or exclude decision", approver: Cyber leadership}
+  - {change: "Risk methodology (any change)", approver: "Governance board, with cyber risk (methodology owner)"}
+  - {change: "Change in framework basis or risk calculation (major)", approver: "Governance board and cyber leadership"}
+release_steps:
+  - "Change is proposed as a pull request."
+  - "Automatic checks pass (see tools/crisp_catalog.py validate)."
+  - "Reviewers approve. Required approvers depend on the table above."
+  - "Cyber team tags the release and builds the catalog bundle."
+  - "Pilot or new projects are pinned to the new version. Existing projects stay where they are."

@@ -1,0 +1,28 @@
+# Cyber leadership decisions on the framework: adopt, tailor or exclude.
+# Each decision has a reason and a date. Control IDs are real NIST SP 800-53 Rev 5 families;
+# the decisions, reasons, wording and dates are made up.
+framework: "NIST SP 800-53 Rev 5"
+criteria:
+  adopt: "The control can apply to at least one in-scope project and needs no change to be tested."
+  tailor: "The control applies, but the organization sets its own value, scope or wording."
+  exclude: "The control cannot apply to any in-scope project. The reason is recorded."
+decisions:
+  - {control: AC-2,  title: Account Management,                  decision: adopt,   reason: "Applies to every project with user accounts.", decided_by: Cyber leadership, date: 2026-09-15}
+  - {control: AC-6,  title: Least Privilege,                     decision: adopt,   reason: "Applies to every project.", decided_by: Cyber leadership, date: 2026-09-15}
+  - {control: IA-2,  title: Identification and Authentication,   decision: tailor,  reason: "MFA scope set by organization: administrators and any access from outside the network.", decided_by: Cyber leadership, date: 2026-09-15}
+  - {control: IA-5,  title: Authenticator Management,            decision: tailor,  reason: "Focused on secrets and credentials held by the solution itself.", decided_by: Cyber leadership, date: 2026-09-15}
+  - {control: SC-7,  title: Boundary Protection,                 decision: adopt,   reason: "Applies to internet-facing and partner-facing projects.", decided_by: Cyber leadership, date: 2026-09-15}
+  - {control: SC-8,  title: Transmission Confidentiality and Integrity, decision: adopt, reason: "Applies wherever data moves between components.", decided_by: Cyber leadership, date: 2026-09-15}
+  - {control: SC-12, title: Cryptographic Key Establishment and Management, decision: adopt, reason: "Needed wherever encryption is required.", decided_by: Cyber leadership, date: 2026-09-15}
+  - {control: SC-23, title: Session Authenticity,                decision: adopt,   reason: "Applies to web applications.", decided_by: Cyber leadership, date: 2026-09-15}
+  - {control: SC-28, title: Protection of Information at Rest,   decision: adopt,   reason: "Applies to confidential and restricted data.", decided_by: Cyber leadership, date: 2026-09-15}
+  - {control: SI-10, title: Information Input Validation,        decision: adopt,   reason: "Applies to applications and APIs.", decided_by: Cyber leadership, date: 2026-09-15}
+  - {control: RA-5,  title: Vulnerability Monitoring and Scanning, decision: tailor, reason: "Scan frequency set by organization (monthly).", decided_by: Cyber leadership, date: 2026-09-15}
+  - {control: AU-2,  title: Event Logging,                       decision: adopt,   reason: "Applies to every project.", decided_by: Cyber leadership, date: 2026-09-15}
+  - {control: AU-3,  title: Content of Audit Records,            decision: adopt,   reason: "Defines what each log entry must hold.", decided_by: Cyber leadership, date: 2026-09-15}
+  - {control: AU-6,  title: Audit Record Review,                 decision: tailor,  reason: "Review frequency depends on project criticality.", decided_by: Cyber leadership, date: 2026-09-15}
+  - {control: CP-9,  title: System Backup,                       decision: tailor,  reason: "Backup frequency depends on project criticality.", decided_by: Cyber leadership, date: 2026-09-15}
+  - {control: SA-11, title: Developer Testing and Evaluation,    decision: adopt,   reason: "Applies to applications and APIs.", decided_by: Cyber leadership, date: 2026-09-15}
+  - {control: SR-3,  title: Supply Chain Controls and Processes, decision: tailor,  reason: "Limited to third-party software components in the first release.", decided_by: Cyber leadership, date: 2026-09-15}
+  - {control: PE-3,  title: Physical Access Control,             decision: exclude, reason: "Provided and assessed by the hosting provider. Not assessed per project.", decided_by: Cyber leadership, date: 2026-09-15}
+  - {control: PE-6,  title: Monitoring Physical Access,          decision: exclude, reason: "Provided and assessed by the hosting provider.", decided_by: Cyber leadership, date: 2026-09-15}

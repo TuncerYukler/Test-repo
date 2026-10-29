@@ -1,0 +1,27 @@
+# Which threat modeling method CRISP uses for which project, and when a threat model is needed.
+trigger_rules:
+  - id: TM-001
+    version: 1
+    when:
+      any:
+        - {attribute: data_class, in: [confidential, restricted]}
+        - {attribute: exposure, in: [internet-authenticated, internet-public]}
+    result: threat-model-required
+    reason: "Sensitive data or internet exposure."
+methods:
+  - id: METH-STRIDE
+    name: STRIDE per data flow
+    version: 1
+    fits: [web-application, api, batch-job]
+    steps: [Draw the data flow diagram, Mark trust boundaries, "Consider each STRIDE category (spoofing, tampering, repudiation, information disclosure, denial of service, elevation of privilege) for each flow and component", Link each threat to a planned control, Record threats with no control as gaps]
+    template: threat-modeling/templates/stride-template (example)
+  - id: METH-DATA-PLATFORM
+    name: Data platform threat review
+    version: 1
+    fits: [data-platform]
+    steps: [List data sources, stores and consumers, Mark who can read and write at each point, Consider disclosure, tampering and misuse at each point, Link each threat to a planned control, Record threats with no control as gaps]
+    template: threat-modeling/templates/data-platform-template (example)
+selection_rules:
+  - {id: TM-SEL-001, when: {all: [{attribute: project_type, in: [web-application, api, batch-job]}]}, method: METH-STRIDE}
+  - {id: TM-SEL-002, when: {all: [{attribute: project_type, in: [data-platform]}]}, method: METH-DATA-PLATFORM}
+  - {id: TM-SEL-003, when: always, method: METH-STRIDE}

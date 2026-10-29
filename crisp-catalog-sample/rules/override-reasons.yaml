@@ -1,0 +1,21 @@
+# Standard reasons an architect can use to add, exclude or override a requirement.
+- id: OVR-SHARED-PLATFORM
+  label: Handled by a shared platform
+  applies_to: [exclude]
+  approval: cyber-team
+- id: OVR-NOT-APPLICABLE
+  label: Not applicable, the feature does not exist in this project
+  applies_to: [exclude]
+  approval: cyber-team
+- id: OVR-COMPENSATING
+  label: Compensating control in place
+  applies_to: [exclude, partly]
+  approval: governance-board
+- id: OVR-ADD-CONTEXT
+  label: Added because of project-specific context
+  applies_to: [add]
+  approval: none
+- id: OVR-POC-NO-REAL-DATA
+  label: Proof of concept with no real data
+  applies_to: [exclude]
+  approval: cyber-team

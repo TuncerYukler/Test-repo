@@ -1,0 +1,52 @@
+- id: REQ-AU-LOG
+  title: Security event logging
+  statement: Security-relevant events are logged with who, what, when and where, and sent to the central logging platform.
+  framework_refs: ["NIST SP 800-53 Rev 5: AU-2", "NIST SP 800-53 Rev 5: AU-3"]
+  domain: logging-and-operations
+  owner: Security operations lead
+  source: "Logging standard, section 2 (example)"
+  version: 1
+  evidence:
+    addressed: "The design lists the events logged, the fields in each entry, and shows delivery to the central platform."
+    partly_addressed: "Logging exists but events, fields or central delivery are incomplete."
+    accepted_evidence: [Logging design, Sample log entries, Logging platform onboarding record]
+    verifier: Security architect
+- id: REQ-AU-REVIEW
+  title: Log review
+  statement: Security logs are reviewed on a defined schedule, and suspicious activity is followed up.
+  framework_refs: ["NIST SP 800-53 Rev 5: AU-6"]
+  domain: logging-and-operations
+  owner: Security operations lead
+  source: "Logging standard, section 5 (example)"
+  version: 1
+  evidence:
+    addressed: "Alerts and a review schedule are defined, and an owner is named."
+    partly_addressed: "A review is planned but the schedule or owner is missing."
+    accepted_evidence: [Monitoring plan, Alert rule list]
+    verifier: Security operations analyst
+- id: REQ-CP-BACKUP
+  title: Backup and restore
+  statement: Data and configuration are backed up at a frequency set by criticality, and restoring from backup is tested.
+  framework_refs: ["NIST SP 800-53 Rev 5: CP-9"]
+  domain: logging-and-operations
+  owner: Resilience lead
+  source: "Resilience standard, section 3 (example)"
+  version: 1
+  evidence:
+    addressed: "Backup frequency, retention and a successful restore test are documented."
+    partly_addressed: "Backups are defined but no restore test has been done."
+    accepted_evidence: [Backup design, Restore test record]
+    verifier: Security architect, resilience analyst
+- id: REQ-SI-VULN
+  title: Vulnerability scanning
+  statement: The solution and its platform are scanned for known vulnerabilities at least monthly, and findings are fixed within agreed time frames.
+  framework_refs: ["NIST SP 800-53 Rev 5: RA-5"]
+  domain: logging-and-operations
+  owner: Vulnerability management lead
+  source: "Vulnerability management standard, section 2 (example)"
+  version: 1
+  evidence:
+    addressed: "The project is enrolled in scanning and a recent scan result is available."
+    partly_addressed: "The project is enrolled but the scan result is old or findings are unresolved."
+    accepted_evidence: [Scanner enrollment record, Latest scan result]
+    verifier: Assurance analyst

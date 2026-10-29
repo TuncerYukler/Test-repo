@@ -1,0 +1,52 @@
+- id: REQ-DP-REST
+  title: Encryption at rest
+  statement: Confidential and restricted data is encrypted wherever it is stored.
+  framework_refs: ["NIST SP 800-53 Rev 5: SC-28", "NIST SP 800-53 Rev 5: SC-28(1)"]
+  domain: data-protection
+  owner: Data protection lead
+  source: "Data protection standard, section 2 (example)"
+  version: 1
+  evidence:
+    addressed: "The design lists every data store holding this data and shows each is encrypted with an approved algorithm."
+    partly_addressed: "Some data stores are encrypted and others are not, or a store is missing from the list."
+    accepted_evidence: [Data store inventory, Configuration export showing encryption enabled]
+    verifier: Security architect
+- id: REQ-DP-TRANSIT
+  title: Encryption in transit
+  statement: Data is protected with approved encryption whenever it moves between components or leaves the internal network.
+  framework_refs: ["NIST SP 800-53 Rev 5: SC-8"]
+  domain: data-protection
+  owner: Data protection lead
+  source: "Data protection standard, section 3 (example)"
+  version: 1
+  evidence:
+    addressed: "The data flow diagram shows an approved protocol on every connection."
+    partly_addressed: "Some connections use unencrypted protocols, or are not shown in the diagram."
+    accepted_evidence: [Data flow diagram, Network configuration, TLS scan result]
+    verifier: Security architect
+- id: REQ-SC-KEYS
+  title: Key management
+  statement: Encryption keys are created, stored, rotated and retired using an approved key management service.
+  framework_refs: ["NIST SP 800-53 Rev 5: SC-12"]
+  domain: data-protection
+  owner: Data protection lead
+  source: "Cryptography standard, section 4 (example)"
+  version: 1
+  evidence:
+    addressed: "The design names the key service, the rotation period and who can access keys."
+    partly_addressed: "A key service is named but rotation or access is not defined."
+    accepted_evidence: [Design document section on keys, Key service configuration]
+    verifier: Security architect
+- id: REQ-SC-SESSION
+  title: Session protection
+  statement: User sessions are protected against theft and reuse, and end after a defined idle time.
+  framework_refs: ["NIST SP 800-53 Rev 5: SC-23"]
+  domain: data-protection
+  owner: Platform security lead
+  source: "Secure development standard, section 7 (example)"
+  version: 1
+  evidence:
+    addressed: "The design defines token lifetime, secure cookie settings, idle timeout and logout behavior."
+    partly_addressed: "Some of these settings are defined but not all."
+    accepted_evidence: [Design document section on sessions, Session test result]
+    verifier: Security architect, assurance analyst

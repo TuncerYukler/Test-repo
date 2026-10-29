@@ -1,0 +1,27 @@
+# A made-up project used to show how the catalog is applied.
+project: "Payments portal (made up)"
+pinned_catalog_version: 1.0.0
+attributes:
+  project_type: web-application
+  data_class: confidential
+  exposure: internet-authenticated
+  criticality: high
+  uses_third_party_components: true
+  threat_context: high
+threat_model:
+  method: METH-STRIDE
+  threats_found: [T-SPOOF-IDENTITY, T-TOKEN-THEFT, T-TAMPER-INPUT]
+# What the architect and assessor have judged so far (made up). Anything missing is "not yet assessed".
+evidence_status:
+  REQ-AC-ACCT: addressed
+  REQ-AC-LEAST: partly_addressed
+  REQ-IA-AUTHN: addressed
+  REQ-IA-MFA: gap
+  REQ-IA-CRED: addressed
+  REQ-DP-REST: addressed
+  REQ-DP-TRANSIT: addressed
+  REQ-SC-KEYS: partly_addressed
+  REQ-SC-BOUNDARY: addressed
+  REQ-SC-SESSION: gap
+  REQ-SI-INPUT: partly_addressed
+  REQ-AU-LOG: addressed
